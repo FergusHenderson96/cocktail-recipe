@@ -39,7 +39,7 @@ class CocktailIngredient extends Component {
         this.setState({cockDetails: data.drinks[this.state.drinkNum]});
         this.setState({arr: data.drinks.length});
         this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
-        if (this.state.arr == "1") {
+        if (this.state.arr === "1") {
           this.setState({firstCocktail: true})
           this.setState({lastCocktail: true})
         }
@@ -67,7 +67,7 @@ class CocktailIngredient extends Component {
         this.setState({arr: data.drinks.length});
         this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
         this.setState({firstCocktail: false})
-    if (this.state.drinkNum == this.state.arr-1) {
+    if (this.state.drinkNum === this.state.arr-1) {
       this.setState({lastCocktail: true})
     }
     else {
@@ -85,7 +85,7 @@ class CocktailIngredient extends Component {
         this.setState({arr: data.drinks.length});
         this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
         this.setState({lastCocktail: false})
-    if (this.state.drinkNum == "0") {
+    if (this.state.drinkNum === "0") {
       this.setState({firstCocktail: true})
     }
     else {
