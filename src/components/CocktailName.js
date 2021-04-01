@@ -8,7 +8,7 @@ class CocktailName extends Component{
     cocktailList: null,
     text: "",
     formDetails: [],
-    cockDetails: "",
+    cocktailDetails: "",
     firstCocktail: false,
     lastCocktail: false,
     undefined: ""
@@ -23,7 +23,7 @@ class CocktailName extends Component{
       // stop default form behaviour which is to reload the page
       event.preventDefault();
       this.setState({
-        formDetails: [...this.state.formDetails, this.state.text],
+        formDetails: [this.state.text],
         text: "",
       });
     };
@@ -31,15 +31,16 @@ class CocktailName extends Component{
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.state.text}`)
   .then((res) => res.json())
   .then((data) => { 
-    console.log(data)
     if (data.drinks == null) {
       this.setState({undefined: true})
     }else{
+    this.setState({cocktailDetails: ""})
+    this.setState({drinkNum: 0})
     this.setState({undefined: false})
-    this.setState({cockDetails: data.drinks[this.state.drinkNum]});
+    this.setState({cocktailDetails: data.drinks[0]});
     this.setState({arr: data.drinks.length});
     this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
-    if (this.state.arr === "1") {
+    if (this.state.arr === 1) {
       this.setState({firstCocktail: true})
       this.setState({lastCocktail: true})
     }
@@ -55,7 +56,7 @@ class CocktailName extends Component{
   .then((res) => res.json())
   .then((data) => { 
     this.setState({drinkNum: this.state.drinkNum+1})
-    this.setState({cockDetails: data.drinks[this.state.drinkNum]});
+    this.setState({cocktailDetails: data.drinks[this.state.drinkNum]});
     this.setState({arr: data.drinks.length});
     this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
     this.setState({firstCocktail: false})
@@ -73,12 +74,13 @@ class CocktailName extends Component{
   .then((res) => res.json())
   .then((data) => { 
     this.setState({drinkNum: this.state.drinkNum-1})
-    this.setState({cockDetails: data.drinks[this.state.drinkNum]});
+    this.setState({cocktailDetails: data.drinks[this.state.drinkNum]});
     this.setState({arr: data.drinks.length});
     this.setState({cocktail: data.drinks[this.state.drinkNum].strDrink});
     this.setState({lastCocktail: false})
-    if (this.state.drinkNum === "0") {
+    if (this.state.drinkNum === 0) {
       this.setState({firstCocktail: true})
+      
     }
     else {
       this.setState({firstCocktail: false})
@@ -123,7 +125,7 @@ class CocktailName extends Component{
     )}
     {this.state.lastCocktail ? (
         <div>
-        last cocktail on the list
+        Last cocktail on the list
         </div>
     ) : (
       <div>
@@ -135,24 +137,24 @@ class CocktailName extends Component{
                
         <div>{this.state.cocktail}</div>
         <br/>
-        <div>{this.state.cockDetails.strAlcoholic}</div>
+        <div>{this.state.cocktailDetails.strAlcoholic}</div>
         <br/>
         <p>Ingredients</p>
-        <div>{this.state.cockDetails.strMeasure1}</div>
-        <div>{this.state.cockDetails.strIngredient1}</div>
-        <div>{this.state.cockDetails.strMeasure2}</div>
-        <div>{this.state.cockDetails.strIngredient2}</div>
-        <div>{this.state.cockDetails.strMeasure3}</div>
-        <div>{this.state.cockDetails.strIngredient3}</div>
-        <div>{this.state.cockDetails.strMeasure4}</div>
-        <div>{this.state.cockDetails.strIngredient4}</div>
-        <div>{this.state.cockDetails.strMeasure5}</div>
-        <div>{this.state.cockDetails.strIngredient5}</div>
-        <div>{this.state.cockDetails.strMeasure6}</div>
-        <div>{this.state.cockDetails.strIngredient6}</div>
+        <div>{this.state.cocktailDetails.strMeasure1}</div>
+        <div>{this.state.cocktailDetails.strIngredient1}</div>
+        <div>{this.state.cocktailDetails.strMeasure2}</div>
+        <div>{this.state.cocktailDetails.strIngredient2}</div>
+        <div>{this.state.cocktailDetails.strMeasure3}</div>
+        <div>{this.state.cocktailDetails.strIngredient3}</div>
+        <div>{this.state.cocktailDetails.strMeasure4}</div>
+        <div>{this.state.cocktailDetails.strIngredient4}</div>
+        <div>{this.state.cocktailDetails.strMeasure5}</div>
+        <div>{this.state.cocktailDetails.strIngredient5}</div>
+        <div>{this.state.cocktailDetails.strMeasure6}</div>
+        <div>{this.state.cocktailDetails.strIngredient6}</div>
         <br/>
         <p>Instructions</p>
-        <div>{this.state.cockDetails.strInstructions}</div>
+        <div>{this.state.cocktailDetails.strInstructions}</div>
         <p>Cocktail number: {this.state.drinkNum+1}</p>
         </div>
     )
