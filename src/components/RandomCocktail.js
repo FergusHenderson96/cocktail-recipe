@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '.././App.css'
 
 class App extends Component{
 
@@ -20,9 +21,9 @@ class App extends Component{
         <div>
         <h1>Random Cocktail Generator:</h1> 
           <div>
-            <img src = {this.state.cocktail.strDrinkThumb}/>
+            <img className="image" src = {this.state.cocktail.strDrinkThumb} alt="Cocktail"/>
             <div>Cocktail name: {this.state.cocktail.strDrink}</div>
-            <button onClick={this.randomCocktail}>Generate new cocktail</button> 
+            <button className="button" onClick={this.randomCocktail}>Generate new cocktail</button> 
             <div>{this.state.cocktail.strAlcoholic}</div>
             <br/>
             <p>Ingredients</p>

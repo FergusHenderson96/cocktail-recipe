@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import '.././App.css'
 
 class CocktailIngredient extends Component {
     state = {
@@ -18,7 +18,6 @@ class CocktailIngredient extends Component {
       handleInput = (event) => {
           // getting the value of the input and assigning to the state
           this.setState({ text: event.target.value });
-          this.setState({ingredient: ""})
         };
         handleSubmit = (event) => {
           // stop default form behaviour which is to reload the page
@@ -33,9 +32,11 @@ class CocktailIngredient extends Component {
       .then((res) => res.json())
       .then((data) => { 
         console.log(data)
-        if (data.drinks == undefined) {
+        if (data === null) {
         this.setState({undefined: true})
       }else{
+        this.setState({cocktailDetails: ""})
+        this.setState({drinkNum: 0})
         this.setState({undefined: false})
         this.setState({cocktailDetails: data.drinks[0]});
         this.setState({arr: data.drinks.length});
@@ -96,75 +97,89 @@ class CocktailIngredient extends Component {
       ) }
         
     
-        render() {
-        return (
-            <div>
-              <p>Enter ingredient name below</p>
-              <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                value={this.state.text}
-                onChange={this.handleInput}
-              />
-              <button onClick={this.cocktailSearch}>Search</button>
-              </form>
-               {this.state.undefined ? (
-        <div>
-        No cocktail found
-        </div>
-    ) : (
-      <div>
-        <p>{this.state.text}</p>
-      </div>
-    )}
+render() {
+return (
+
+<div>
+<p>Enter ingredient name below</p>
+
+
+<form onSubmit={this.handleSubmit}>
+
+<input 
+  className="search"
+  type="text"
+  value={this.state.text}
+  onChange={this.handleInput}
+/>
+
+<button className="button" onClick={this.cocktailSearch}>Search</button>
+
+</form>
+
+
+{/* if undefined is true due to no data from fetch, returns no cocktail. if data found, return text */}         
+{this.state.undefined ? (
+  <div>
+  No cocktail found
+  </div>
+) : (
+  <div>
+  <p>{this.state.text}</p>
+  </div>
+)}
         
 
-            <div>Number of cocktails in this search: {this.state.arr}</div>
-            {this.state.firstCocktail ? (
-        <div>
-        First cocktail on the list
-        </div>
-    ) : (
-      <div>
-        <button onClick={this.prevCocktail}>Previous Cocktail</button>
-      </div>
-    )}
-    {this.state.lastCocktail ? (
-        <div>
-        last cocktail on the list
-        </div>
-    ) : (
-      <div>
-        <button onClick={this.nextCocktail}>Next Cocktail</button>
-      </div>
-    )}
-            <div>{this.state.cocktail}</div>
-            <button onClick={this.cocktailNameSearch}>Request Ingredients</button>
-            <br/>
-        <div>{this.state.cocktailDetails.strAlcoholic}</div>
-        <br/>
-        <p>Ingredients</p>
-        <div>{this.state.cocktailDetails.strMeasure1}</div>
-        <div>{this.state.cocktailDetails.strIngredient1}</div>
-        <div>{this.state.cocktailDetails.strMeasure2}</div>
-        <div>{this.state.cocktailDetails.strIngredient2}</div>
-        <div>{this.state.cocktailDetails.strMeasure3}</div>
-        <div>{this.state.cocktailDetails.strIngredient3}</div>
-        <div>{this.state.cocktailDetails.strMeasure4}</div>
-        <div>{this.state.cocktailDetails.strIngredient4}</div>
-        <div>{this.state.cocktailDetails.strMeasure5}</div>
-        <div>{this.state.cocktailDetails.strIngredient5}</div>
-        <div>{this.state.cocktailDetails.strMeasure6}</div>
-        <div>{this.state.cocktailDetails.strIngredient6}</div>
-        <br/>
-        <p>Instructions</p>
-        <div>{this.state.cocktailDetails.strInstructions}</div>
-        
-            <p>Cocktail number: {this.state.drinkNum+1}</p>
-            </div>
-        )
-    }
+<div>Number of cocktails in this search: {this.state.arr}</div>
+<p>Cocktail number: {this.state.drinkNum+1}</p>
 
 
-}    
-    export default CocktailIngredient
+{/* if its the first cocktail on the list, displays first cocktail on the list, if not, display button */}
+{this.state.firstCocktail ? (
+  <div>
+  First cocktail on the list
+  </div>
+) : (
+  <div>
+  <button className="button" onClick={this.prevCocktail}>Previous Cocktail</button>
+  </div>
+)}
+
+
+{/* if its the last cocktail on the list, displays last cocktail on the list, if not, display button */}
+{this.state.lastCocktail ? (
+  <div>
+  Last cocktail on the list
+  </div>
+) : (
+  <div>
+  <button className="button" onClick={this.nextCocktail}>Next Cocktail</button>
+  </div>
+)}
+
+
+<div>{this.state.cocktail}</div>
+<button className="button" onClick={this.cocktailNameSearch}>Request Ingredients</button>
+<br/>
+<div>{this.state.cocktailDetails.strAlcoholic}</div>
+<br/>
+<p>Ingredients</p>
+<div>{this.state.cocktailDetails.strMeasure1}</div>
+<div>{this.state.cocktailDetails.strIngredient1}</div>
+<div>{this.state.cocktailDetails.strMeasure2}</div>
+<div>{this.state.cocktailDetails.strIngredient2}</div>
+<div>{this.state.cocktailDetails.strMeasure3}</div>
+<div>{this.state.cocktailDetails.strIngredient3}</div>
+<div>{this.state.cocktailDetails.strMeasure4}</div>
+<div>{this.state.cocktailDetails.strIngredient4}</div>
+<div>{this.state.cocktailDetails.strMeasure5}</div>
+<div>{this.state.cocktailDetails.strIngredient5}</div>
+<div>{this.state.cocktailDetails.strMeasure6}</div>
+<div>{this.state.cocktailDetails.strIngredient6}</div>
+<br/>
+<p>Instructions</p>
+<div>{this.state.cocktailDetails.strInstructions}</div>
+
+</div>
+)}}    
+export default CocktailIngredient

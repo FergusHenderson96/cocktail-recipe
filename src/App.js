@@ -36,7 +36,7 @@ randomCocktail = () => {
     <h1 className="heading">Cocktail Index</h1> 
 
      <div className="options">
-    <button className="button" onClick={this.randomCocktail}>Random</button>   
+    <button className="main-button" onClick={this.randomCocktail}>Random</button>   
     {this.state.random ? (
       <div>Generate a random cocktail</div>
     ) : (
@@ -47,7 +47,7 @@ randomCocktail = () => {
       </div>
 <br/>
       <div className="options">
-    <button className="button" onClick={this.nameCocktail}>Name</button>  
+    <button className="main-button" onClick={this.nameCocktail}>Name</button>  
     {this.state.name ? (
         <div>Search for a cocktail by name</div>
       ) : (
@@ -58,7 +58,7 @@ randomCocktail = () => {
       </div>
 <br/>
       <div className="options">
-    <button className="button" onClick={this.ingredientCocktail}>Ingredient</button> 
+    <button className="main-button" onClick={this.ingredientCocktail}>Ingredient</button> 
       {this.state.ingredient ? (
         <div>Search for a cocktail by ingredient</div>
       ) : (
