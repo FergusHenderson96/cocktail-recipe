@@ -21,7 +21,7 @@ class App extends Component{
         <div>
         <h1>Random Cocktail Generator:</h1> 
           <div>
-            <img className="image" src = {this.state.cocktail.strDrinkThumb} alt="Cocktail"/>
+            <img className="image" src = {this.state.cocktail.strDrinkThumb}/>
             <div>Cocktail name: {this.state.cocktail.strDrink}</div>
             <button className="button" onClick={this.randomCocktail}>Generate new cocktail</button> 
             <div>{this.state.cocktail.strAlcoholic}</div>
