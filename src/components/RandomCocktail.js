@@ -22,26 +22,24 @@ class App extends Component{
         <h1>Random Cocktail Generator:</h1> 
           <div>
             <img className="image" src = {this.state.cocktail.strDrinkThumb}/>
-            <div>Cocktail name: {this.state.cocktail.strDrink}</div>
+            <p>Cocktail name: {this.state.cocktail.strDrink}</p>
             <button className="button" onClick={this.randomCocktail}>Generate new cocktail</button> 
-            <div>{this.state.cocktail.strAlcoholic}</div>
+            <p>{this.state.cocktail.strAlcoholic}</p>
             <br/>
-            <p>Ingredients</p>
-            <div>{this.state.cocktail.strMeasure1}</div>
-            <div>{this.state.cocktail.strIngredient1}</div>
-            <div>{this.state.cocktail.strMeasure2}</div>
-            <div>{this.state.cocktail.strIngredient2}</div>
-            <div>{this.state.cocktail.strMeasure3}</div>
-            <div>{this.state.cocktail.strIngredient3}</div>
-            <div>{this.state.cocktail.strMeasure4}</div>
-            <div>{this.state.cocktail.strIngredient4}</div>
-            <div>{this.state.cocktail.strMeasure5}</div>
-            <div>{this.state.cocktail.strIngredient5}</div>
-            <div>{this.state.cocktail.strMeasure6}</div>
-            <div>{this.state.cocktail.strIngredient6}</div>
+            <p>Ingredients: {this.state.cocktail.strMeasure1}</p>
+            <p>{this.state.cocktail.strIngredient1}</p>
+            <p>{this.state.cocktail.strMeasure2}</p>
+            <p>{this.state.cocktail.strIngredient2}</p>
+            <p>{this.state.cocktail.strMeasure3}</p>
+            <p>{this.state.cocktail.strIngredient3}</p>
+            <p>{this.state.cocktail.strMeasure4}</p>
+            <p>{this.state.cocktail.strIngredient4}</p>
+            <p>{this.state.cocktail.strMeasure5}</p>
+            <p>{this.state.cocktail.strIngredient5}</p>
+            <p>{this.state.cocktail.strMeasure6}</p>
+            <p>{this.state.cocktail.strIngredient6}</p>
             <br/>
-            <p>Instructions</p>
-            <div>{this.state.cocktail.strInstructions}</div>
+            <p>Instructions: {this.state.cocktail.strInstructions}</p>
           </div> 
           
     

@@ -158,27 +158,25 @@ return (
 )}
 
 
-<div>{this.state.cocktail}</div>
+<p>{this.state.cocktail}</p>
 <button className="button" onClick={this.cocktailNameSearch}>Request Ingredients</button>
 <br/>
-<div>{this.state.cocktailDetails.strAlcoholic}</div>
+<p>{this.state.cocktailDetails.strAlcoholic}</p>
 <br/>
-<p>Ingredients</p>
-<div>{this.state.cocktailDetails.strMeasure1}</div>
-<div>{this.state.cocktailDetails.strIngredient1}</div>
-<div>{this.state.cocktailDetails.strMeasure2}</div>
-<div>{this.state.cocktailDetails.strIngredient2}</div>
-<div>{this.state.cocktailDetails.strMeasure3}</div>
-<div>{this.state.cocktailDetails.strIngredient3}</div>
-<div>{this.state.cocktailDetails.strMeasure4}</div>
-<div>{this.state.cocktailDetails.strIngredient4}</div>
-<div>{this.state.cocktailDetails.strMeasure5}</div>
-<div>{this.state.cocktailDetails.strIngredient5}</div>
-<div>{this.state.cocktailDetails.strMeasure6}</div>
-<div>{this.state.cocktailDetails.strIngredient6}</div>
+<p>Ingredients: {this.state.cocktailDetails.strMeasure1}</p>
+<p>{this.state.cocktailDetails.strIngredient1}</p>
+<p>{this.state.cocktailDetails.strMeasure2}</p>
+<p>{this.state.cocktailDetails.strIngredient2}</p>
+<p>{this.state.cocktailDetails.strMeasure3}</p>
+<p>{this.state.cocktailDetails.strIngredient3}</p>
+<p>{this.state.cocktailDetails.strMeasure4}</p>
+<p>{this.state.cocktailDetails.strIngredient4}</p>
+<p>{this.state.cocktailDetails.strMeasure5}</p>
+<p>{this.state.cocktailDetails.strIngredient5}</p>
+<p>{this.state.cocktailDetails.strMeasure6}</p>
+<p>{this.state.cocktailDetails.strIngredient6}</p>
 <br/>
-<p>Instructions</p>
-<div>{this.state.cocktailDetails.strInstructions}</div>
+<p>Instructions: {this.state.cocktailDetails.strInstructions}</p>
 
 </div>
 )}}    
